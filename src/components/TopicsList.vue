@@ -25,8 +25,7 @@
         color="success"
         class="ma-10"
         ><router-link to="/topics/add"
-      >
-        Ajouter une thématique</router-link>
+      >Ajouter une thématique</router-link>
       </v-btn>
     </v-card-actions>
     </v-card>
