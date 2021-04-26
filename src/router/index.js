@@ -115,13 +115,13 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  //pas de token, récupérer du localstorage
+  //if no token, retrieve from localstorage
   if (!store.state.auth.authData.token) {
     const access_token = localStorage.getItem("access_token");
     const refresh_token = localStorage.getItem("refresh_token");
     const userId = localStorage.getItem("userId");
     const role = localStorage.getItem("role");
-    //save dans le store
+    //save in the store
     if (access_token) {
       const data = {
         access_token,
@@ -132,22 +132,23 @@ router.beforeEach((to, from, next) => {
       store.commit("auth/SAVE_TOKEN_DATA", data);
     }
   }
-  //récupère token
+  //retrieve token, rôle isAdmin
   const auth = store.state.auth.authData.token;
   const isAdmin = store.getters["auth/isAdmin"];
-  //si page ne nécessite pas d'auth meta=false
-  
+
+  //if auth not necessary, requiredAuth=false
   if (!to.meta.requiredAuth) {
     next();
-      } else if (to.meta.isAdmin && !isAdmin) {
-           return next({ path: "events" });
-    // authent' et meta=true
+  //meta.isAdmin=true and role is not Admin
+  } else if (to.meta.isAdmin && !isAdmin) {
+    
+    return next({ path: "events" });
+  // auth and requiredAuth=true
   } else if (auth && to.meta.requiredAuth) {
     next();
   } else if (!auth && to.meta.requiredAuth) {
     return next({ path: "/" });
-
-         }
+  }
   return next();
 });
 

@@ -5,9 +5,6 @@
         <h1 class="display-1 font-weight-bold mb-15 text-center">Se connecter</h1>
 
         <v-form ref="form" v-model="valid" id="form">
-          <v-alert dense outlined type="error" v-if="error">{{
-            error
-          }}</v-alert>
 
           <v-text-field
             v-model="username"
@@ -57,7 +54,6 @@ export default {
   data: () => ({
     username: "",
     password: "",
-    error: "",
     valid: true,
     show1: false,
     usernameRules: [
@@ -94,9 +90,7 @@ export default {
     await this.actionLogin(data);
       if (this.getterLoginStatus === "success") {
         this.$router.push("events");
-      } else {
-        this.error = "Les données saisies sont erronées";
-      }
+      } 
     },
   },
 };

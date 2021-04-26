@@ -64,8 +64,11 @@ const actions = {
         "Content-Type": "application/x-www-form-urlencoded",
       })
       .catch((error) => {
-        console.log(error);
+        const str = error.response.data.error_description;
+        alert(str);
       });
+  
+      
 
     if (response && response.data) {
       commit("SAVE_TOKEN_DATA", response.data);
