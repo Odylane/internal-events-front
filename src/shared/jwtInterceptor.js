@@ -3,6 +3,7 @@ import store from "@/store";
 
 const jwtInterceptor = axios.create({ baseURL: "http://localhost:8085/api/" });
 
+//Add a request interceptor
 jwtInterceptor.interceptors.request.use(
   (config) => {
     const authData = store.state.auth.authData;

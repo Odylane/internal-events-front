@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <h1>Evénements internes</h1>
+      <!-- <h1>Evénements internes</h1> -->
 
       <EventsList />
 

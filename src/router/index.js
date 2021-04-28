@@ -10,6 +10,7 @@ import Profile from "@/components/Profile.vue";
 import Logout from "@/views/Logout.vue";
 import TopicsList from "@/components/TopicsList.vue";
 import TopicForm from "@/components/TopicForm.vue";
+import Page404 from "@/components/Page404.vue";
 
 Vue.use(VueRouter);
 
@@ -106,6 +107,14 @@ const routes = [
       isAdmin: true,
     },
   },
+  {
+    path: "*",
+    name: "Page404",
+    component: Page404,
+    meta: {
+      requiredAuth: false,
+    },
+  },
 ];
 
 const router = new VueRouter({
@@ -139,13 +148,15 @@ router.beforeEach((to, from, next) => {
   //if auth not necessary, requiredAuth=false
   if (!to.meta.requiredAuth) {
     next();
-  //meta.isAdmin=true and role is not Admin
+    //meta.isAdmin=true and role is not Admin
   } else if (to.meta.isAdmin && !isAdmin) {
-    
     return next({ path: "events" });
-  // auth and requiredAuth=true
+    // auth and requiredAuth=true
   } else if (auth && to.meta.requiredAuth) {
     next();
+  } else if (auth && !to.meta.requiredAuth) {
+    return next({ path: "*" });
+  
   } else if (!auth && to.meta.requiredAuth) {
     return next({ path: "/" });
   }
