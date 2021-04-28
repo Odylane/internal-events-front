@@ -135,7 +135,7 @@ import jwtInterceptor from "@/shared/jwtInterceptor";
 
 export default {
   name: "CreateEvent",
-  title: "Internal Events - Créer un événement",
+  title: "Créer un événement - Internal Events",
   data: () => ({
     title: "",
     speakerName: "",

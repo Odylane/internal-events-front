@@ -48,7 +48,7 @@ import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "LoginPage",
-  title: "Internal Events - Se connecter",
+  title: "Se connecter - Internal Events",
 
   //Link the form's fields to the data of the component
   data: () => ({

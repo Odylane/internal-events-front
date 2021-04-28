@@ -17,6 +17,6 @@
 <script>
 export default {
   name: "Page404",
-  title: "Page-404",
+  title: "Page 404 - Internal Events",
 };
 </script>

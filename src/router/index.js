@@ -154,6 +154,7 @@ router.beforeEach((to, from, next) => {
     // auth and requiredAuth=true
   } else if (auth && to.meta.requiredAuth) {
     next();
+    // navigation guard for page 404
   } else if (auth && !to.meta.requiredAuth) {
     return next({ path: "*" });
   

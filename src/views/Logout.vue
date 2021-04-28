@@ -13,7 +13,7 @@ import { mapState } from "vuex";
 
 export default {
   name: "LogoutPage",
-  title: "Se déconnecter",
+  title: "Se déconnecter - Internal Events",
 
   computed: {
     ...mapState("auth", ["currentEmployee"]),

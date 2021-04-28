@@ -70,7 +70,7 @@
 <script>
 export default {
   name: "RegistrationForm",
-  title: "Internal Events - Créer un compte",
+  title: "Créer un compte - Internal Events",
   //Link the form's fields to the data of the component
   data: () => ({
     Employee: {

@@ -55,7 +55,7 @@ import jwtInterceptor from "@/shared/jwtInterceptor";
 
 export default {
   name: "TopicForm",
-  title: "Internal Events - Ajouter une thématique",
+  title: "Ajouter une thématique - Internal Events",
   data: () => ({
     name: "",
     error: "",

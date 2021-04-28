@@ -2,7 +2,7 @@
   <v-container class="blue lighten-5">
     <v-row>
       <EventTypeFilter :selectedEventType.sync ="nameEventType" />
-      <v-col v-for="event in filterByEventype" :key="event.id" xs="12" sm="12" md="3">
+      <v-col v-for="event in filterByEventType" :key="event.id" xs="12" sm="12" md="3">
         <v-card class="d-flex flex-column" height="100%" tile>
           <v-card-text>
             <div class="overline mb-1">{{ event.nameEventType }}</div>
@@ -37,7 +37,7 @@ import EventTypeFilter from "./EventTypeFilter.vue";
 export default {
   components: { EventTypeFilter },
   name: "events-list",
-  title: "Internal Events - Liste des événements internes",
+  title: "Liste des événements internes - Internal Events",
   data() {
     return {
       nameEventType:"",
@@ -47,7 +47,7 @@ export default {
     events() {
       return this.$store.state.event.events;
     },
-    filterByEventype() {
+    filterByEventType() {
       let result = this.events;
       
       if (this.nameEventType) result = result.filter(event => event.nameEventType === this.nameEventType);

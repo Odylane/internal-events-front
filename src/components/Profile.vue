@@ -32,7 +32,7 @@ import BackEventsList from "../components/BackEventsList";
 
 export default {
   name: "Profile",
-  title: "Internal Events - Profil",
+  title: "Profil - Internal Events",
   components: { BackEventsList },
 
   computed: {

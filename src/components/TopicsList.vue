@@ -37,7 +37,7 @@ import { mapActions, mapState } from "vuex";
 
 export default {
   name: "TopicsList",
-  title: "Internal Events - Liste des thématiques",
+  title: "Liste des thématiques - Internal Events",
   created() {
     this.getAllTopics();
   },
